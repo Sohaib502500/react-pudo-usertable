@@ -7,14 +7,14 @@ export default function Navbar(users) {
   return (
     <div>
       <ul
-        class="nav nav-tabs"
+        className="nav nav-tabs"
         id="myTab"
         role="tablist"
         style={{
           backgroundColor: '#E52E4D',
         }}
       >
-        <li class="nav-item" role="presentation">
+        <li className="nav-item" role="presentation">
           <button
             class="nav-link active"
             id="home-tab"
@@ -30,9 +30,9 @@ export default function Navbar(users) {
           </button>
         </li>
       </ul>
-      <div class="tab-content" id="myTabContent">
+      <div className="tab-content" id="myTabContent">
         <div
-          class="tab-pane fade show active"
+          className="tab-pane fade show active"
           id="home"
           role="tabpanel"
           aria-labelledby="home-tab"
