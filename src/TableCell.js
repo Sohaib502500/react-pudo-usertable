@@ -10,6 +10,7 @@ export default function CellTable(user){
   return(
     
     <l0 style={{maxHeight:'70px'}}>
+      
       <button className="button btn btn-light" style={{height:'70px',width:'20px',fontSize:'15px'}}>{user.id}
       </button>
       <img style={{height:'65px',width:'7px',backgroundColor:'#77D1F3', borderRadius:'25px'}} src="null" alt=""/>
@@ -22,3 +23,5 @@ export default function CellTable(user){
   
   );
 }
+
+function get
