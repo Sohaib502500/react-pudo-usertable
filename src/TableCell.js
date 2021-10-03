@@ -1,27 +1,124 @@
 import React from 'react';
-import "./style.css";
+import './style.css';
 
-
-export default function CellTable(user){
-  console.log("Cell="+JSON.stringify(user.value));
-  let userName = user.value.name.title+" "+user.value.name.first+" "+user.value.name.last;
+export default function CellTable(user) {
+  console.log('Cell=' + JSON.stringify(user.value));
+  let userName =
+    user.value.name.title +
+    ' ' +
+    user.value.name.first +
+    ' ' +
+    user.value.name.last;
   const email = user.value.email;
+  const gender = user.value.gender;
+  const phone = user.value.phone;
   
-  return(
-    
-    <l0 style={{maxHeight:'70px'}}>
+
+  return (
+    <div style={{ height: '70px' }}>
+      <div style={{ width:'350px',display:'inline-block'}}>
+        <button
+          className="button btn btn-light"
+          style={{
+            height: '68px',
+            width: '20px',
+            fontSize: '15px',
+            marginTop: '7px',
+          }}
+        >
+          {user.id}
+        </button>
+        <img
+          style={{
+            height: '65px',
+            width: '7px',
+            backgroundColor: '#77D1F3',
+            borderRadius: '25px',
+          }}
+          src="null"
+          alt=""
+        />
+        <img
+          src={user.value.picture.medium}
+          style={{ margin: '5px', height: '65px', width: '65px' }}
+          alt=""
+        />
+        <l1 className={{ width: '500px' }} style={{ }}>
+          {userName}
+        </l1>
+      </div>
       
-      <button className="button btn btn-light" style={{height:'70px',width:'20px',fontSize:'15px'}}>{user.id}
-      </button>
-      <img style={{height:'65px',width:'7px',backgroundColor:'#77D1F3', borderRadius:'25px'}} src="null" alt=""/>
-      <img src={user.value.picture.medium} style={{margin:'5px',height:'65px',width:'65px'}} alt=""/>
-      <l1 className={{width:'500px'}} style={{width:'500px!important'}}>{userName}</l1>
-      <img style={{height:'70px',width:'1px',backgroundColor:'#CCCCCC',marginLeft:'5px'}} src="null" alt=""/>
-      <l1 className={{width:'500px!important',marginLeft:'5px',verticleAlign:'textTop'}} style={{width:'500px!important'}}>{email}</l1>
-      <img style={{height:'1px',width:'100%',backgroundColor:'#CCCCCC',marginTop:'-30px'}} src="null" alt=""/>
-    </l0>
-  
+     {getBlockWithBadge([gender,'female',gender,'200px'])}
+     {getBlockWithText([email,'250px'])}
+     {getBlockWithBadge([gender,'male',phone,'200px'])}
+      <img
+        style={{
+          height: '1px',
+          width: '100%',
+          backgroundColor: '#CCCCCC',
+          marginTop: '-30px',
+        }}
+        src="null"
+        alt=""
+      />
+    </div>
   );
 }
 
-function get
+function getBadgeFor(info) {
+  //console.log("getBadge",JSON.stringify(info));
+  let badgeClass = 'badge m-2 badge-';
+  badgeClass += info.key === info.value ? 'warning' : 'primary';
+  
+  return badgeClass;
+}
+
+function getBlockWithBadge(info) {
+  console.log("getBadgeBlock",JSON.stringify(info));
+const badgeStyle=getBadgeFor({key:info[0],value:info[1]});
+const title = info[2];
+const width = info[3];
+
+  return(
+    <div style={{ width:width,display:'inline-block'}}>
+       <img
+        style={{
+          height: '70px',
+          width: '1px',
+          backgroundColor: '#CCCCCC',
+          marginLeft: '5px',
+        }}
+        src="null"
+        alt=""
+      />
+      <span style={{fontSize : '15px',fontWeight : 'bold'}} className={badgeStyle}> {title} </span>
+    
+    </div>
+  );
+}
+
+function getBlockWithText(info) {
+
+const title = info[0];
+const width = info[1];
+
+  return(
+    <div style={{ width:width,display:'inline-block'}}>
+       <img
+        style={{
+          height: '70px',
+          width: '1px',
+          backgroundColor: '#CCCCCC',
+          marginLeft: '5px',
+        }}
+        src="null"
+        alt=""
+      />
+     <l1 style={{fontSize:'15px',fontWeight:'normal',marginLeft:'10px'}}>
+          {title}
+        </l1>
+    
+    </div>
+  );
+}
+
