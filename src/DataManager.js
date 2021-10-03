@@ -15,7 +15,7 @@ export class DataManager extends React.Component{
 
   async getDataFromApi() {
     console.log("trying");
-    const response=await fetch('https://randomuser.me/api/?results=3');
+    const response=await fetch('https://randomuser.me/api/?results=5');
     const res=await response.json();
     //console.log("success="+JSON.stringify(res));
     this.setState({ users: res.results,isLoading : false});

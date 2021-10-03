@@ -99,7 +99,7 @@ function getBlockWithBadge(info) {
         alt=""
       />
       <span
-        style={{ fontSize: '15px', fontWeight: 'bold' }}
+        style={{ fontSize: '15px', fontWeight: 'bold',borderRadius:'25px' }}
         className={badgeStyle}
       >
         {' '}
