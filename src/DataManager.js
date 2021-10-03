@@ -21,14 +21,20 @@ export class DataManager extends React.Component{
     this.setState({ users: res.results,isLoading : false});
   }
 
+  
 
   render(){
     //console.log("success="+JSON.stringify(this.state.users));
     if(this.state.isLoading) return (<div>Loading Data</div>);
     return(
-      <MainPage value={this.state.users}/>
+      <MainPage value={this.state.users} onValueChanged={this.handleCheckBox}/>
     );
   }
+
+  handleCheckBox = info =>{
+    console.log("Table Handle value"+JSON.stringify(info));
+  }
+  
   
 }
 

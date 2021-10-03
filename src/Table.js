@@ -2,7 +2,8 @@ import React from 'react';
 import TableCell from './TableCell.js';
 
 export default function TableView(users) {
-  console.log("Table="+JSON.stringify(users.value));
+  //console.log("Table="+JSON.stringify(users.value));
+ 
   return (
     <div>
       <div style={{display:'inline-block',width:'100%',height:'30px',backgroundColor:'#F8F8F8',}}>
@@ -13,12 +14,17 @@ export default function TableView(users) {
       </div>
       <u0>
         {users.value.map((user) => (
-          <TableCell key={user.id.value} value={user} />
+          <TableCell key={user.id.value} value={user} onValueChanged={users.onValueChanged}  />
         ))}
       </u0>
     </div>
   );
 }
+
+
+
+
+
 
 function getHeaderBlockWith(info){
   const title= info[0];

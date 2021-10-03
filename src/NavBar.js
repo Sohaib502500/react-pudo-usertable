@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import TableView from "./Table.js";
 
 export default function Navbar(users) {
+  
   return (
     <div>
       <ul
@@ -36,7 +37,7 @@ export default function Navbar(users) {
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-           {<TableView value={users.value}/>}
+           {<TableView value={users.value} onValueChanged={users.onValueChanged}/>}
            
         </div>
       </div>

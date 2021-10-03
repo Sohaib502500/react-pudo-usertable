@@ -2,13 +2,15 @@ import React from 'react';
 import './style.css';
 
 export default function CellTable(user) {
-  console.log('Cell=' + JSON.stringify(user.value));
+  //console.log('Cell=' + JSON.stringify(user.value));
+ 
   let userName =
     user.value.name.title +
     ' ' +
     user.value.name.first +
     ' ' +
     user.value.name.last;
+  const userid = user.value.id.value;
   const email = user.value.email;
   const gender = user.value.gender;
   const phone = user.value.phone;
@@ -17,17 +19,22 @@ export default function CellTable(user) {
   return (
     <div style={{ height: '70px' }}>
       <div style={{ width: '350px', display: 'inline-block' }}>
-        <button
-          className="button btn btn-light"
-          style={{
-            height: '68px',
-            width: '20px',
-            fontSize: '15px',
-            marginTop: '7px',
-          }}
-        >
-          {user.id}
-        </button>
+        <div style={{ width: '20px',height:'20px', display: 'inline-block' }}>
+          <input
+            style={{
+              width: '10px',
+              height: '10px',
+              marginLeft: '5px',
+              display: 'flex',
+              alignItems: 'top',
+            }}
+            type="checkbox"
+            checked=""
+            key={userid}
+            onChange={() => user.onValueChanged(user.value)}
+          />
+        </div>
+
         <img
           style={{
             height: '65px',
