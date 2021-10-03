@@ -12,11 +12,11 @@ export default function CellTable(user) {
   const email = user.value.email;
   const gender = user.value.gender;
   const phone = user.value.phone;
-  
+  const color = gender === 'male' ? '#77D1F3' : '#93E088';
 
   return (
     <div style={{ height: '70px' }}>
-      <div style={{ width:'350px',display:'inline-block'}}>
+      <div style={{ width: '350px', display: 'inline-block' }}>
         <button
           className="button btn btn-light"
           style={{
@@ -32,7 +32,7 @@ export default function CellTable(user) {
           style={{
             height: '65px',
             width: '7px',
-            backgroundColor: '#77D1F3',
+            backgroundColor: color,
             borderRadius: '25px',
           }}
           src="null"
@@ -43,14 +43,14 @@ export default function CellTable(user) {
           style={{ margin: '5px', height: '65px', width: '65px' }}
           alt=""
         />
-        <l1 className={{ width: '500px' }} style={{ }}>
+        <l1 className={{ width: '500px' }} style={{}}>
           {userName}
         </l1>
       </div>
-      
-     {getBlockWithBadge([gender,'female',gender,'200px'])}
-     {getBlockWithText([email,'250px'])}
-     {getBlockWithBadge([gender,'male',phone,'200px'])}
+
+      {getBlockWithBadge([gender, 'female', gender, '200px'])}
+      {getBlockWithText([email, '250px'])}
+      {getBlockWithBadge([gender, 'male', phone, '200px'])}
       <img
         style={{
           height: '1px',
@@ -69,19 +69,19 @@ function getBadgeFor(info) {
   //console.log("getBadge",JSON.stringify(info));
   let badgeClass = 'badge m-2 badge-';
   badgeClass += info.key === info.value ? 'warning' : 'primary';
-  
+
   return badgeClass;
 }
 
 function getBlockWithBadge(info) {
-  console.log("getBadgeBlock",JSON.stringify(info));
-const badgeStyle=getBadgeFor({key:info[0],value:info[1]});
-const title = info[2];
-const width = info[3];
+  //console.log('getBadgeBlock', JSON.stringify(info));
+  const badgeStyle = getBadgeFor({ key: info[0], value: info[1] });
+  const title = info[2];
+  const width = info[3];
 
-  return(
-    <div style={{ width:width,display:'inline-block'}}>
-       <img
+  return (
+    <div style={{ width: width, display: 'inline-block' }}>
+      <img
         style={{
           height: '70px',
           width: '1px',
@@ -91,20 +91,24 @@ const width = info[3];
         src="null"
         alt=""
       />
-      <span style={{fontSize : '15px',fontWeight : 'bold'}} className={badgeStyle}> {title} </span>
-    
+      <span
+        style={{ fontSize: '15px', fontWeight: 'bold' }}
+        className={badgeStyle}
+      >
+        {' '}
+        {title}{' '}
+      </span>
     </div>
   );
 }
 
 function getBlockWithText(info) {
+  const title = info[0];
+  const width = info[1];
 
-const title = info[0];
-const width = info[1];
-
-  return(
-    <div style={{ width:width,display:'inline-block'}}>
-       <img
+  return (
+    <div style={{ width: width, display: 'inline-block' }}>
+      <img
         style={{
           height: '70px',
           width: '1px',
@@ -114,11 +118,11 @@ const width = info[1];
         src="null"
         alt=""
       />
-     <l1 style={{fontSize:'15px',fontWeight:'normal',marginLeft:'10px'}}>
-          {title}
-        </l1>
-    
+      <l1
+        style={{ fontSize: '15px', fontWeight: 'normal', marginLeft: '10px' }}
+      >
+        {title}
+      </l1>
     </div>
   );
 }
-
