@@ -16,7 +16,7 @@ export default function Navbar(users) {
       >
         <li className="nav-item" role="presentation">
           <button
-            class="nav-link active"
+            className="nav-link active"
             id="home-tab"
             data-bs-toggle="tab"
             data-bs-target="#home"
