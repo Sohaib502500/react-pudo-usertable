@@ -63,7 +63,7 @@ export default function CellTable(user) {
           height: '1px',
           width: '100%',
           backgroundColor: '#CCCCCC',
-          marginTop: '-30px',
+          marginTop: '0px',
         }}
         src="null"
         alt=""
