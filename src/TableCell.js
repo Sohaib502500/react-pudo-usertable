@@ -64,6 +64,7 @@ export default function CellTable(user) {
           width: '100%',
           backgroundColor: '#CCCCCC',
           marginTop: '0px',
+          display:'flex'
         }}
         src="null"
         alt=""
